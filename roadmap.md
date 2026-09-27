@@ -1,0 +1,3 @@
+- [ ] Build seven connected frontend-only portal pages with shared navigation and content.
+- [ ] Add agricultural imagery, reusable video fallback, and contact mailto workflow.
+- [ ] Verify desktop/mobile navigation, forms, routes, and no overflow.

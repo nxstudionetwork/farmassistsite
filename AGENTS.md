@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep Farm Assist portal content and media references in one client-side configuration module so future real assets and links can be supplied without backend changes.
+- Keep the seven public pages as separate TanStack routes with shared site chrome in the root route for direct navigation and distinct metadata.
+- Use a native HTML5 video element only when a real source is configured; otherwise show an honest fallback to avoid fabricated demos.
