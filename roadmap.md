@@ -1,3 +1,5 @@
 - [ ] Build seven connected frontend-only portal pages with shared navigation and content.
 - [ ] Add agricultural imagery, reusable video fallback, and contact mailto workflow.
 - [ ] Verify desktop/mobile navigation, forms, routes, and no overflow.
+- [ ] Refine the existing portal against the complete startup portfolio brief without replacing its visual identity.
+- [ ] Check every page at narrow mobile, tablet, and desktop widths and resolve overflow/interaction issues.
