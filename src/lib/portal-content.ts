@@ -21,6 +21,12 @@ export const portal = {
   },
   team: [] as { name: string; role: string; description: string; photo?: string; url?: string }[],
   pilotStatus: 'PILOT PREPARATION',
+  downloadUrl: '',
+  farmerVoices: [] as { name: string; quote: string; photo?: string; audio?: string }[],
+  customerVoices: [] as { name: string; quote: string; photo?: string }[],
+  articles: [] as { title: string; category: string; summary: string; image?: string; url?: string }[],
+  journeyYears: [] as { year: string; title: string; dimension: string; description: string }[],
+  screenshots: [] as { title: string; image: string }[],
   journey: ['Idea', 'Concept', 'Planning', 'UI/UX', 'Application Development', 'Feature Development', 'Integration', 'Testing', 'Pilot Preparation', 'Pilot', 'Expansion'],
   pilot: ['Preparation', 'Farmer Introduction', 'Initial Testing', 'Pilot Farms', 'Real Usage', 'Feedback', 'Improvements', 'Wider Rollout'],
 } as const;
