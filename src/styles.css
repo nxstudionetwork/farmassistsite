@@ -123,3 +123,6 @@
 @media(max-width:360px){.brand{font-size:13px}.brand small{font-size:5px}.brand-mark{width:25px;height:25px}.social-row a,.social-row button{width:17px}.social-row svg{width:12px}}
 .section-dark .section-heading p{color:var(--primary-foreground)}
 .section-dark .section-heading .eyebrow{color:var(--lime)}
+.feature-pair,.feature-panel { min-width:0; }
+.feature-panel .portal-button { white-space:normal; text-align:center; width:100%; min-width:0; height:auto; padding-block:12px; overflow-wrap:anywhere; }
+@media(max-width:640px){.feature-panel h3{font-size:25px}.feature-panel p{font-size:14px}}
