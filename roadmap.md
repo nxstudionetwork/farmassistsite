@@ -1,5 +1,6 @@
-- [ ] Build seven connected frontend-only portal pages with shared navigation and content.
-- [ ] Add agricultural imagery, reusable video fallback, and contact mailto workflow.
-- [ ] Verify desktop/mobile navigation, forms, routes, and no overflow.
-- [ ] Refine the existing portal against the complete startup portfolio brief without replacing its visual identity.
-- [ ] Check every page at narrow mobile, tablet, and desktop widths and resolve overflow/interaction issues.
+- [x] Build connected frontend-only Farm Assist pages with shared navigation and central content configuration.
+- [x] Add agricultural imagery, honest video/audio/screenshot fallbacks, and a contact email workflow.
+- [x] Complete the farmer-to-customer portfolio sections while preserving the established design.
+- [x] Verify routes, mobile menu, form validation and no overflow at 320px, 375px, 792px and 1280px.
+- [ ] Replace marked placeholders when real team details, articles, pilot stories, app screenshots, media, social URLs and download URL are provided.
+- [ ] Add dated journey milestones when verified dates are provided.
