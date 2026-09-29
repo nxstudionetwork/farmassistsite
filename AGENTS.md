@@ -10,5 +10,7 @@
 <!-- LOVABLE:END -->
 
 - Keep Farm Assist portal content and media references in one client-side configuration module so future real assets and links can be supplied without backend changes.
-- Keep the seven public pages as separate TanStack routes with shared site chrome in the root route for direct navigation and distinct metadata.
+- Keep each public portfolio page as a separate TanStack route with shared site chrome in the root route for direct navigation and distinct metadata.
 - Use a native HTML5 video element only when a real source is configured; otherwise show an honest fallback to avoid fabricated demos.
+
+- Keep unverified people, testimonials, media, app links and milestone dates explicitly marked as pending rather than fabricating published claims.
