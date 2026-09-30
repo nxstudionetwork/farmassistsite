@@ -8,7 +8,7 @@ const links = [
   { label: 'About', to: '/about' }, { label: 'Pilot', to: '/pilot' },
   { label: 'Platform', to: '/platform' }, { label: 'Journey', to: '/journey' },
   { label: 'Demo', to: '/demo' }, { label: 'Blog', to: '/blog' },
-  { label: 'Team', to: '/team' }, { label: 'Contact', to: '/contact' },
+  { label: 'Contact', to: '/contact' },
 ] as const;
 const socials = [
   { label: 'Instagram', icon: Instagram }, { label: 'YouTube', icon: Youtube },
