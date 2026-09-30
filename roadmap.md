@@ -4,3 +4,6 @@
 - [x] Verify routes, mobile menu, form validation and no overflow at 320px, 375px, 792px and 1280px.
 - [ ] Replace marked placeholders when real team details, articles, pilot stories, app screenshots, media, social URLs and download URL are provided.
 - [ ] Add dated journey milestones when verified dates are provided.
+- [ ] Complete Contact with two playable farmer voices, two playable customer voices, ten interactive team profiles, and a polished email form.
+- [ ] Remove the separate Team page and its navigation links while preserving the shared header, remaining pages, and cross-page options below Contact.
+- [ ] Verify Contact interactions and layouts across desktop, tablet, and mobile.
