@@ -26,7 +26,8 @@ function VoiceCard({ voice, playing, onPlay, onEnd }: { voice: Voice; playing: b
 
   return <article className={`voice-card ${playing ? 'voice-card-active' : ''}`}>
     <div className="voice-person"><img src={voice.image} alt={`Demo portrait representing ${voice.name}`} loading="lazy" width={96} height={96}/><div><h4>{voice.name}</h4><span>{voice.designation}</span></div></div>
-    <p>{voice.description}</p>
+    <p className="voice-description">{voice.description}</p>
+    <blockquote className="voice-quote">“{voice.quote}”</blockquote>
     <div className="voice-controls">
       <Button type="button" variant="social" size="icon" className="voice-play" title={playing ? `Pause ${voice.name}` : `Play ${voice.name}`} aria-label={playing ? `Pause ${voice.name}` : `Play ${voice.name}`} disabled={error} onClick={() => { if (audio.current) void onPlay(audio.current); }}>{playing ? <Pause size={19} fill="currentColor"/> : <Play size={19} fill="currentColor"/>}</Button>
       <span className="voice-time">{time(current)}</span>
@@ -35,27 +36,29 @@ function VoiceCard({ voice, playing, onPlay, onEnd }: { voice: Voice; playing: b
       <Button type="button" variant="social" size="icon" className="voice-volume" title={muted ? 'Unmute' : 'Mute'} aria-label={`${muted ? 'Unmute' : 'Mute'} ${voice.name}`} onClick={() => setMuted(v => !v)}>{muted ? <VolumeX size={17}/> : <Volume2 size={17}/>}</Button>
     </div>
     {error && <p className="field-error" role="alert">This demo recording could not be loaded.</p>}
-    <audio ref={audio} src={voice.audio} preload="metadata" muted={muted} onTimeUpdate={e => setCurrent(e.currentTarget.currentTime)} onLoadedMetadata={e => setDuration(e.currentTarget.duration)} onDurationChange={e => setDuration(e.currentTarget.duration)} onError={() => setError(true)} onEnded={() => { setCurrent(0); if (audio.current) audio.current.currentTime = 0; onEnd(); }}/>
+    <audio ref={audio} src={voice.audio} preload="none" muted={muted} onTimeUpdate={e => setCurrent(e.currentTarget.currentTime)} onLoadedMetadata={e => setDuration(e.currentTarget.duration)} onDurationChange={e => setDuration(e.currentTarget.duration)} onError={() => setError(true)} onEnded={() => { setCurrent(0); if (audio.current) audio.current.currentTime = 0; onEnd(); }}/>
   </article>;
 }
 
 export function ContactVoices() {
   const [active, setActive] = useState<HTMLAudioElement | null>(null);
   const [playError, setPlayError] = useState('');
-  useEffect(() => () => { if (active) active.pause(); }, [active]);
+  const activeRef = useRef<HTMLAudioElement | null>(null);
+  useEffect(() => () => { activeRef.current?.pause(); }, []);
 
   async function toggle(next: HTMLAudioElement) {
     setPlayError('');
-    if (active === next && !next.paused) { next.pause(); setActive(null); return; }
-    if (active && active !== next) { active.pause(); active.currentTime = 0; }
-    try { await next.play(); setActive(next); }
-    catch { setActive(null); setPlayError('Playback could not start. Please try again.'); }
+    const previous = activeRef.current;
+    if (previous === next && !next.paused) { next.pause(); activeRef.current = null; setActive(null); return; }
+    if (previous && previous !== next) { previous.pause(); previous.currentTime = 0; }
+    try { await next.play(); activeRef.current = next; setActive(next); }
+    catch { activeRef.current = null; setActive(null); setPlayError('Playback could not start. Please try again.'); }
   }
 
   return <section className="section section-muted"><div className="container"><SectionTitle eyebrow="STORIES FROM BOTH SIDES" title="Farmer & customer voices." description="Four sample voice recordings illustrate how farmer and customer stories can be shared. Portraits, names and recordings are demo content."/>
     {playError && <p role="alert" className="field-error">{playError}</p>}
-    <div className="voices-columns"><div className="voices-column"><div className="voices-column-head"><span className="small-label">01 / FROM THE FIELD</span><h3>Farmer voices</h3><p>Perspectives from the people who grow.</p></div>{portal.farmerVoices.map(v => <VoiceCard key={v.name} voice={v} playing={active?.src.endsWith(v.audio) && !active.paused || false} onPlay={toggle} onEnd={() => setActive(null)}/>)}</div>
-    <div className="voices-column"><div className="voices-column-head"><span className="small-label">02 / FROM THE TABLE</span><h3>Customer voices</h3><p>Perspectives from the people who buy.</p></div>{portal.customerVoices.map(v => <VoiceCard key={v.name} voice={v} playing={active?.src.endsWith(v.audio) && !active.paused || false} onPlay={toggle} onEnd={() => setActive(null)}/>)}</div></div>
+    <div className="voices-columns"><div className="voices-column"><div className="voices-column-head"><span className="small-label">01 / FROM THE FIELD</span><h3>Farmer voices</h3><p>Perspectives from the people who grow.</p></div>{portal.farmerVoices.map(v => <VoiceCard key={v.name} voice={v} playing={active?.src.endsWith(v.audio) && !active.paused || false} onPlay={toggle} onEnd={() => { activeRef.current = null; setActive(null); }}/>)}</div>
+    <div className="voices-column"><div className="voices-column-head"><span className="small-label">02 / FROM THE TABLE</span><h3>Customer voices</h3><p>Perspectives from the people who buy.</p></div>{portal.customerVoices.map(v => <VoiceCard key={v.name} voice={v} playing={active?.src.endsWith(v.audio) && !active.paused || false} onPlay={toggle} onEnd={() => { activeRef.current = null; setActive(null); }}/>)}</div></div>
   </div></section>;
 }
 
@@ -74,5 +77,5 @@ function TeamModal({person, onClose}: {person: TeamMember | null; onClose: () =>
 
 export function ContactTeam() {
   const [selected, setSelected] = useState<TeamMember | null>(null);
-  return <section className="section"><div className="container"><SectionTitle eyebrow="THE PEOPLE BEHIND THE IDEA" title="Meet the team." description="Ten illustrative profiles show the people and disciplines behind a farmer-first platform. Names, photos and biographies are demo content."/><div className="team-people-grid">{portal.team.map(person => <TeamCard key={person.name} person={person} onSelect={setSelected}/>)}</div><TeamModal person={selected} onClose={() => setSelected(null)}/></div></section>;
+  return <section className="section"><div className="container"><SectionTitle eyebrow="THE PEOPLE BEHIND THE IDEA" title="Meet the team." description="Five illustrative profiles show the people and disciplines behind a farmer-first platform. Names, photos and biographies are demo content."/><div className="team-people-grid">{portal.team.map(person => <TeamCard key={person.name} person={person} onSelect={setSelected}/>)}</div><TeamModal person={selected} onClose={() => setSelected(null)}/></div></section>;
 }

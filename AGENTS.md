@@ -14,5 +14,5 @@
 - Use a native HTML5 video element only when a real source is configured; otherwise show an honest fallback to avoid fabricated demos.
 
 - Keep unverified people, testimonials, media, app links and milestone dates explicitly marked as pending rather than fabricating published claims.
-- Keep Contact voice recordings and team profiles in the central content configuration and label sample people/audio as demo content so replacements do not require UI edits.
+- Keep Contact voice recordings and exactly five team profiles in the central content configuration and label sample people/audio as demo content so replacements do not require UI edits.
 - Keep the shared header and cross-page navigation when consolidating the Team page into Contact, so other portfolio pages stay discoverable.
