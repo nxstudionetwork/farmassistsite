@@ -7,11 +7,6 @@ import team2 from '@/assets/team-2.jpg';
 import team3 from '@/assets/team-3.jpg';
 import team4 from '@/assets/team-4.jpg';
 import team5 from '@/assets/team-5.jpg';
-import team6 from '@/assets/team-6.jpg';
-import team7 from '@/assets/team-7.jpg';
-import team8 from '@/assets/team-8.jpg';
-import team9 from '@/assets/team-9.jpg';
-import team10 from '@/assets/team-10.jpg';
 
 export const portal = {
   email: 'farm.assist@outlook.com',
@@ -40,11 +35,6 @@ export const portal = {
     { image: team3, name: 'Nisha Patel', designation: 'Product Design', shortDescription: 'Designing useful and approachable tools.', fullDescription: 'Demo profile: Nisha represents product design, focusing on clear experiences that make digital tools easier to use.' },
     { image: team4, name: 'Arjun Mehta', designation: 'Platform Development', shortDescription: 'Connecting people, services and technology.', fullDescription: 'Demo profile: Arjun represents platform development, exploring reliable ways to bring the agricultural ecosystem together.' },
     { image: team5, name: 'Meera Iyer', designation: 'Crop Research', shortDescription: 'Making agricultural knowledge accessible.', fullDescription: 'Demo profile: Meera represents crop research, translating complex growing information into practical insights.' },
-    { image: team6, name: 'Dev Prakash', designation: 'Community Outreach', shortDescription: 'Listening to local farming perspectives.', fullDescription: 'Demo profile: Dev represents community outreach, helping ensure farmer voices remain part of every conversation.' },
-    { image: team7, name: 'Priya Shah', designation: 'Customer Experience', shortDescription: 'Connecting customers to the people who grow.', fullDescription: 'Demo profile: Priya represents customer experience, imagining more transparent and human connections to food origins.' },
-    { image: team8, name: 'Kiran Reddy', designation: 'Agricultural Services', shortDescription: 'Finding practical support for the field.', fullDescription: 'Demo profile: Kiran represents agricultural services, focusing on useful support across the farming journey.' },
-    { image: team9, name: 'Lakshmi Devi', designation: 'Farmer Engagement', shortDescription: 'Keeping farmer needs at the centre.', fullDescription: 'Demo profile: Lakshmi represents farmer engagement, making space for field feedback and everyday farming realities.' },
-    { image: team10, name: 'Sameer Khan', designation: 'Technology Operations', shortDescription: 'Helping the platform work in real life.', fullDescription: 'Demo profile: Sameer represents technology operations, working toward a dependable experience for farmers and customers.' },
   ],
   pilotStatus: 'PILOT PREPARATION',
   downloadUrl: '',

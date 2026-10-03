@@ -179,3 +179,10 @@
 @media(max-width:1100px){.team-people-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
 @media(max-width:720px){.voices-columns{grid-template-columns:1fr;gap:30px}.team-people-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.contact-next{align-items:flex-start;flex-direction:column;}}
 @media(max-width:480px){.contact-top-details{gap:22px;flex-wrap:wrap}.voice-card{padding:15px}.voice-controls{gap:6px}.team-person-body{padding:12px;min-height:145px}.team-person-name{font-size:14px}.team-person-body .small-label{font-size:9px;letter-spacing:0}.team-dialog{max-height:90dvh;overflow-y:auto}.team-dialog-layout{display:block}.team-dialog-layout > img{height:220px;object-position:center 20%}.team-dialog-copy{padding:23px}.team-dialog-copy h2{margin:10px 0 4px}.team-dialog-role{margin-bottom:12px}}
+.voice-card .voice-description { min-height:0; margin:13px 0 7px; }
+.voice-quote { margin:0 0 16px; padding:0 0 0 13px; border-left:2px solid var(--primary); font:600 14px/1.55 var(--font-display); color:var(--foreground); }
+.voice-card-active .voice-quote { border-color:var(--earth); }
+.voices-column-head { border-color:var(--earth); }
+.voice-person img,.team-person-photo img { filter:saturate(.88) contrast(1.035); }
+.contact-next { border-top:1px solid var(--border); margin-top:32px; padding-bottom:18px; }
+.contact-next .portal-button { min-height:44px; padding-inline:17px; font-size:12px; }
