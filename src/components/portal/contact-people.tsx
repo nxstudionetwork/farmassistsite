@@ -36,7 +36,7 @@ function VoiceCard({ voice, playing, onPlay, onEnd }: { voice: Voice; playing: b
       <Button type="button" variant="social" size="icon" className="voice-volume" title={muted ? 'Unmute' : 'Mute'} aria-label={`${muted ? 'Unmute' : 'Mute'} ${voice.name}`} onClick={() => setMuted(v => !v)}>{muted ? <VolumeX size={17}/> : <Volume2 size={17}/>}</Button>
     </div>
     {error && <p className="field-error" role="alert">This demo recording could not be loaded.</p>}
-    <audio ref={audio} src={voice.audio} preload="none" muted={muted} onTimeUpdate={e => setCurrent(e.currentTarget.currentTime)} onLoadedMetadata={e => setDuration(e.currentTarget.duration)} onDurationChange={e => setDuration(e.currentTarget.duration)} onError={() => setError(true)} onEnded={() => { setCurrent(0); if (audio.current) audio.current.currentTime = 0; onEnd(); }}/>
+    <audio ref={audio} src={voice.audio} preload="metadata" muted={muted} onTimeUpdate={e => setCurrent(e.currentTarget.currentTime)} onLoadedMetadata={e => setDuration(e.currentTarget.duration)} onDurationChange={e => setDuration(e.currentTarget.duration)} onError={() => setError(true)} onEnded={() => { setCurrent(0); if (audio.current) audio.current.currentTime = 0; onEnd(); }}/>
   </article>;
 }
 
