@@ -9,3 +9,4 @@
 - [x] Keep only Demo and About in Contact's final page links; refine its color grading and check loading, interactions, and layouts across desktop, tablet, and mobile.
 - [x] Give Contact's "Explore Farm Assist" band a green background matching the site's dark-green section styles.
 - [x] Enhance the About page per the brief: stronger hero, Vision & Mission card sections, two-sided ecosystem lists, farmer-customer bridge, Why Farm Assist, six grouped Provide areas, approach quote, preserved IFX Group section, and full responsiveness.
+- [ ] Transform Blog into Explore with farmer/customer articles, filters, experience discovery, and truthful visit-request preparation; verify navigation and all screen sizes.

@@ -7,7 +7,7 @@ import { portal } from '@/lib/portal-content';
 const links = [
   { label: 'About', to: '/about' }, { label: 'Pilot', to: '/pilot' },
   { label: 'Platform', to: '/platform' }, { label: 'Journey', to: '/journey' },
-  { label: 'Demo', to: '/demo' }, { label: 'Blog', to: '/blog' },
+  { label: 'Demo', to: '/demo' }, { label: 'Explore', to: '/explore' },
   { label: 'Contact', to: '/contact' },
 ] as const;
 const socials = [
