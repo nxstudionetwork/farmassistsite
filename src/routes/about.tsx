@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { Sprout, Link2, HandHeart, Lightbulb, Wheat, ClipboardList, Tractor, BookOpen, Store, MessageCircle, CloudSun, Users, Compass, ShoppingBasket, HeartHandshake, CircleDot } from 'lucide-react';
+import { Sprout, Link2, Lightbulb, Wheat, ClipboardList, Tractor, BookOpen, Store, MessageCircle, CloudSun, Users, Compass, ShoppingBasket, HeartHandshake, CircleDot } from 'lucide-react';
 import { PageIntro, SectionTitle, ClosingBand } from '@/components/portal/site';
 import { BridgeSection } from '@/components/portal/portfolio';
 import farmer from '@/assets/farm-field.jpg';
