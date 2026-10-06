@@ -16,3 +16,5 @@
 - Keep unverified people, testimonials, media, app links and milestone dates explicitly marked as pending rather than fabricating published claims.
 - Keep Contact voice recordings and exactly five team profiles in the central content configuration and label sample people/audio as demo content so replacements do not require UI edits.
 - Keep the shared header and cross-page navigation when consolidating the Team page into Contact, so other portfolio pages stay discoverable.
+- Keep Explore editorial articles and experience options in the central portal configuration; article detail routes use stable slugs so content stays directly shareable.
+- Visit requests remain email preparation until a delivery service is connected; never label a locally prepared request as received or confirmed.
