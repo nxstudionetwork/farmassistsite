@@ -2,11 +2,11 @@
 - [x] Add agricultural imagery, honest video/audio/screenshot fallbacks, and a contact email workflow.
 - [x] Complete the farmer-to-customer portfolio sections while preserving the established design.
 - [x] Verify routes, mobile menu, form validation and no overflow at 320px, 375px, 792px and 1280px.
-- [ ] Replace marked placeholders when real team details, articles, pilot stories, app screenshots, media, social URLs and download URL are provided.
+- [ ] Replace marked demo profiles and add verified pilot stories, app screenshots, media, social URLs and download URL when provided; original farmer/customer educational articles are now included.
 - [ ] Add dated journey milestones when verified dates are provided.
 - [x] Complete Contact with two playable farmer voices, two playable customer voices, exactly five interactive team profiles, readable voice text, and a polished email form.
 - [x] Remove the separate Team page and its navigation links while preserving the shared header, remaining pages, and cross-page options below Contact.
 - [x] Keep only Demo and About in Contact's final page links; refine its color grading and check loading, interactions, and layouts across desktop, tablet, and mobile.
 - [x] Give Contact's "Explore Farm Assist" band a green background matching the site's dark-green section styles.
 - [x] Enhance the About page per the brief: stronger hero, Vision & Mission card sections, two-sided ecosystem lists, farmer-customer bridge, Why Farm Assist, six grouped Provide areas, approach quote, preserved IFX Group section, and full responsiveness.
-- [ ] Transform Blog into Explore with farmer/customer articles, filters, experience discovery, and truthful visit-request preparation; verify navigation and all screen sizes.
+- [x] Transform Blog into Explore with six original farmer/customer articles, shareable reading pages, filters, experience discovery, and truthful visit-request email preparation; verified at 320px, 375px, 792px and 1280px, including the old published URL redirect.
