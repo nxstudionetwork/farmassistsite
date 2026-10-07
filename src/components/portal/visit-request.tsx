@@ -25,7 +25,7 @@ export function VisitRequest({initialPacks = []}: {initialPacks?: string[]}) {
     setPrepared(`mailto:${portal.email}?subject=${encodeURIComponent('Farm Assist — Visit request')}&body=${encodeURIComponent(`${lines}\nDuration: ${duration}\nExperiences: ${packs.join(', ')}\n\nPlease review my request and let me know whether a suitable experience is available.`)}`);
     setError('');
   }
-  return <form className="visit-form" onSubmit={submit}>
+  return <form className="visit-form" onSubmit={submit} onChange={() => setPrepared('')}>
     <div className="form-grid">
       <div className="field full"><label htmlFor="visitor-type">01 / Visitor type *</label><select id="visitor-type" name="Visitor type" required value={type} onChange={e => {setType(e.target.value);setPrepared('');}}><option value="">Who is visiting?</option>{portal.explore.visitorTypes.map(t => <option key={t}>{t}</option>)}</select></div>
       {type && <>
