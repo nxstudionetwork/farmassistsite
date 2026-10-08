@@ -1,14 +1,19 @@
-import voice1 from '@/assets/voice-1.jpg';
-import voice2 from '@/assets/voice-2.jpg';
-import voice3 from '@/assets/voice-3.jpg';
-import voice4 from '@/assets/voice-4.jpg';
-import team1 from '@/assets/team-1.jpg';
-import team2 from '@/assets/team-2.jpg';
-import team3 from '@/assets/team-3.jpg';
-import team4 from '@/assets/team-4.jpg';
-import team5 from '@/assets/team-5.jpg';
-import farmLandscape from '@/assets/farm-hero.jpg';
-import farmField from '@/assets/farm-field.jpg';
+import voice1 from '@/assets/voice-1.webp';
+import voice2 from '@/assets/voice-2.webp';
+import voice3 from '@/assets/voice-3.webp';
+import voice4 from '@/assets/voice-4.webp';
+import team1 from '@/assets/team-1.webp';
+import team2 from '@/assets/team-2.webp';
+import team3 from '@/assets/team-3.webp';
+import team4 from '@/assets/team-4.webp';
+import team5 from '@/assets/team-5.webp';
+import farmLandscape from '@/assets/farm-hero.webp';
+import farmField from '@/assets/farm-field.webp';
+import farmThumb from '@/assets/farm-hero-thumb.webp';
+import fieldThumb from '@/assets/farm-field-thumb.webp';
+
+export type DemoVideo = { id: string; title: string; description: string; category: string; src: string; poster: string; duration?: string; date?: string; featured?: boolean };
+export type DemoImage = { image: string; thumbnail: string; title: string; caption: string; category: string; alt: string };
 
 export const portal = {
   email: 'farm.assist@outlook.com',
@@ -40,6 +45,34 @@ export const portal = {
   ],
   pilotStatus: 'PILOT PREPARATION',
   downloadUrl: '',
+  demo: {
+    main: { id: 'main', title: 'Farm Assist — Product Demo', description: 'An overview of farmer-side tools, the customer experience and the agricultural ecosystem.', category: 'Product Demo', src: '', poster: farmThumb, featured: true } as DemoVideo,
+    videos: [
+      { id: 'platform', title: 'The connected platform', description: 'Farmers, services, markets and customers.', category: 'Farm Assist', src: '', poster: farmThumb },
+      { id: 'assistant', title: 'AI & farm assistance', description: 'A closer look at agricultural assistance.', category: 'Product Features', src: '', poster: fieldThumb },
+      { id: 'farmers', title: 'Farmer perspectives', description: 'Verified farmer stories will be shared here.', category: 'Farmer Stories', src: '', poster: farmThumb },
+      { id: 'customers', title: 'The customer experience', description: 'Discovering products and connecting with growers.', category: 'Customer Experience', src: '', poster: fieldThumb },
+      { id: 'experiences', title: 'Beyond the app', description: 'Agricultural learning and farm experiences.', category: 'Farm Experiences', src: '', poster: farmThumb },
+      { id: 'technology', title: 'Technology in the field', description: 'Digital tools and connected agriculture.', category: 'Technology', src: '', poster: fieldThumb },
+    ] as DemoVideo[],
+    images: [
+      { image: farmLandscape, thumbnail: farmThumb, title: 'An agricultural landscape', caption: 'Illustrative agricultural image—not a verified Farm Assist location.', category: 'Farm imagery · Illustration', alt: 'Green agricultural fields and a rural landscape' },
+      { image: farmField, thumbnail: fieldThumb, title: 'A closer look at growing fields', caption: 'Illustrative farm imagery—not a Farm Assist activity photograph.', category: 'Crop imagery · Illustration', alt: 'Cultivated fields with growing crops' },
+    ] as DemoImage[],
+    screenCategories: ['App overview', 'Farmer experience', 'Customer experience', 'Connected farm'],
+    features: [
+      { title: 'AI & Farm Assistance', description: 'Agricultural information and practical guidance.', icon: 'assistant' },
+      { title: 'Farm Management', description: 'Farms, crops, soil, irrigation and livestock in one connected view.', icon: 'farm' },
+      { title: 'Agricultural Services', description: 'Connecting farm needs with agricultural support.', icon: 'services' },
+      { title: 'Market & Marketplace', description: 'Market information and farmer-to-customer connections.', icon: 'market' },
+      { title: 'Learning & Information', description: 'Agricultural reading for farmers and customers.', icon: 'learning' },
+      { title: 'Farm Map & Connected Farm', description: 'Spatial information, sensors and digital tools.', icon: 'map' },
+    ],
+    sides: [
+      { title: 'Farmer Experience', description: 'A simpler journey from everyday field work to connected markets.', image: farmThumb, items: ['Farms, crops & livestock', 'Services & agricultural information', 'Marketplace & farm tools'] },
+      { title: 'Customer Experience', description: 'A closer connection to food and the people who grow it.', image: fieldThumb, items: ['Discovering farm products & shopping', 'Orders & wishlist', 'Growing guidance & agricultural connection'] },
+    ],
+  },
   farmerVoices: [
     { name: 'Savitri Devi', designation: 'Farmer · Demo voice', description: 'On finding practical support and planning everyday farm work.', quote: 'Clear information and practical support can make farm work easier.', image: voice1, audio: '/audio/voice-1.mp3' },
     { name: 'Mahesh Patil', designation: 'Farmer · Demo voice', description: 'On seasonal decisions and staying connected to markets.', quote: 'Every season brings new decisions and new opportunities.', image: voice2, audio: '/audio/voice-2.mp3' },

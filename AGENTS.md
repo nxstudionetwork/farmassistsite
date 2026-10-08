@@ -18,3 +18,4 @@
 - Keep the shared header and cross-page navigation when consolidating the Team page into Contact, so other portfolio pages stay discoverable.
 - Keep Explore editorial articles and experience options in the central portal configuration; article detail routes use stable slugs so content stays directly shareable.
 - Visit requests remain email preparation until a delivery service is connected; never label a locally prepared request as received or confirmed.
+- Demo media uses shared deferred native players and accessible lightboxes with a single active video, so adding official sources does not trigger parallel downloads or playback.
