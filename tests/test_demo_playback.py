@@ -23,9 +23,10 @@ async def check():
             page = await browser.new_page(viewport={"width": 1280, "height": 1800})
             await page.route("**/playback-test.webm", lambda route: route.fulfill(
                 path=str(clip), content_type="video/webm"))
-            await page.goto("http://localhost:8080/explore")
+            await page.goto("http://localhost:8080/demo")
             await page.wait_for_function("document.querySelector('.desktop-nav a') !== null")
             await page.wait_for_timeout(1500)
+            await page.locator(".desktop-nav").get_by_role("link", name="Explore", exact=True).click()
             await page.evaluate("""async () => {
                 const {portal} = await import('/src/lib/portal-content.ts');
                 const clip = await (await fetch('/playback-test.webm')).blob();
