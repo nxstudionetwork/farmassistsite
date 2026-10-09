@@ -4,11 +4,11 @@ import { Button } from '@/components/ui/button';
 import { ArrowLink, SectionTitle, VideoPanel, ClosingBand } from '@/components/portal/site';
 import { portal } from '@/lib/portal-content';
 import { BridgeSection } from '@/components/portal/portfolio';
-import hero from '@/assets/farm-hero.jpg';
-import farmer from '@/assets/farm-field.jpg';
+import hero from '@/assets/farm-hero.webp';
+import farmer from '@/assets/farm-field.webp';
 
 export const Route = createFileRoute('/')({
-  head: () => ({ meta: [{ title:'Farm Assist — Connected Agriculture' }, { name:'description', content:'Explore Farm Assist, an agricultural technology initiative connecting farm intelligence, management, markets, services and information.' }, { property:'og:title', content:'Farm Assist — Connected Agriculture' }, { property:'og:description', content:'A connected agricultural technology platform being developed for farmers.' }, { property:'og:type', content:'website' }, { name:'twitter:card', content:'summary_large_image' }] }),
+  head: () => ({ links:[{rel:'preload',as:'image',href:hero,fetchPriority:'high'}], meta: [{ title:'Farm Assist — Connected Agriculture' }, { name:'description', content:'Explore Farm Assist, an agricultural technology initiative connecting farm intelligence, management, markets, services and information.' }, { property:'og:title', content:'Farm Assist — Connected Agriculture' }, { property:'og:description', content:'A connected agricultural technology platform being developed for farmers.' }, { property:'og:type', content:'website' }, { name:'twitter:card', content:'summary_large_image' }] }),
   component: Home,
 });
 const capabilities = [
@@ -22,7 +22,7 @@ const capabilities = [
   {icon:BookOpen,title:'Learning & Information',desc:'Bring useful agricultural knowledge closer.'},
 ];
 function Home(){return <main>
-  <section className="hero"><img className="hero-image" src={hero} alt="Green agricultural fields in rural India" width={1600} height={1008}/><div className="container hero-content"><span className="eyebrow"><span className="eyebrow-line"/>AGRICULTURE, CONNECTED</span><h1>FARM<br/>ASSIST</h1><p className="hero-lead">A startup for farmers, by the farmer.</p><p className="hero-copy">Connecting digital agriculture, services, markets and customers in one evolving ecosystem.</p><div className="action-row"><ArrowLink to="/platform" light>Explore Platform</ArrowLink><Button asChild variant="portalOutline" size="portal"><a href="/demo">Watch Demo <Play size={16}/></a></Button></div></div><div className="hero-bottom">AN INITIATIVE OF IFX GROUP &nbsp; / &nbsp; BUILT AROUND THE FARMER</div></section>
+  <section className="hero"><img className="hero-image" src={hero} alt="Green agricultural fields in rural India" width={1600} height={1008} fetchPriority="high" decoding="async"/><div className="container hero-content"><span className="eyebrow"><span className="eyebrow-line"/>AGRICULTURE, CONNECTED</span><h1>FARM<br/>ASSIST</h1><p className="hero-lead">A startup for farmers, by the farmer.</p><p className="hero-copy">Connecting digital agriculture, services, markets and customers in one evolving ecosystem.</p><div className="action-row"><ArrowLink to="/platform" light>Explore Platform</ArrowLink><Button asChild variant="portalOutline" size="portal"><a href="/demo">Watch Demo <Play size={16}/></a></Button></div></div><div className="hero-bottom">AN INITIATIVE OF IFX GROUP &nbsp; / &nbsp; BUILT AROUND THE FARMER</div></section>
   <section className="section"><div className="container"><SectionTitle eyebrow="01 / THE ECOSYSTEM" title="What Does Farm Assist Provide?" description="Farm Assist is a digital agricultural platform and service ecosystem, not simply an app."/><div className="grid-cards">{[
   ["Digital Farming Platform","Farm management, information, tools and services in one place."], ["Agricultural Services","Useful services, experts, schemes, learning and support."], ["Farm Intelligence","Crops, soil, irrigation, weather, livestock and connected-farm insight."], ["Market & Marketplace","Connecting farm products, tools and agricultural market opportunities."], ["Farmer → Customer Bridge","Bringing the people who grow food closer to the people who consume it."], ["Organic & Farm Products","A future customer experience for discovering farm-origin products."], ["Farm Experiences","Educational field visits and experiences for schools and organizations."], ["Connected Ecosystem","A wider connection between farmers, customers, services and technology."]
 ].map(([title,desc],i)=><div className="info-card" key={title}><span className="small-label">{String(i+1).padStart(2,"0")} / FARM ASSIST</span><h3 style={{marginTop:25}}>{title}</h3><p>{desc}</p></div>)}</div></div></section>

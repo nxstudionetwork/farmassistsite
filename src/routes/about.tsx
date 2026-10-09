@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { Sprout, Link2, Lightbulb, Wheat, ClipboardList, Tractor, BookOpen, Store, MessageCircle, CloudSun, Users, Compass, ShoppingBasket, HeartHandshake, CircleDot } from 'lucide-react';
 import { PageIntro, SectionTitle, ClosingBand } from '@/components/portal/site';
 import { BridgeSection } from '@/components/portal/portfolio';
-import farmer from '@/assets/farm-field.jpg';
+import farmer from '@/assets/farm-field.webp';
 
 export const Route = createFileRoute('/about')({head:()=>({meta:[{title:'About Farm Assist — The Idea & Vision'},{name:'description',content:'Farm Assist is a digital agricultural platform and ecosystem connecting farmers, technology, services, markets and customers — an initiative of IFX Group.'},{property:'og:title',content:'About Farm Assist — The Idea & Vision'},{property:'og:description',content:'A connected agricultural technology initiative developed as part of IFX Group.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}]}),component:About});
 
