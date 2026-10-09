@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { PageIntro, SectionTitle, StepTimeline, VideoPanel, ClosingBand } from '@/components/portal/site';
 import { portal } from '@/lib/portal-content';
-import hero from '@/assets/farm-hero.jpg';
+import hero from '@/assets/farm-hero.webp';
 export const Route = createFileRoute('/journey')({head:()=>({meta:[{title:'Journey — Farm Assist Development'},{name:'description',content:'Follow Farm Assist from idea and planning through application development, testing and pilot preparation.'},{property:'og:title',content:'Journey — Farm Assist Development'},{property:'og:description',content:'The development journey behind Farm Assist, from idea to pilot.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}]}),component:Journey});
 const progress=['Core Application','Farmer Modules','Marketplace','Agricultural Services','Platform Integration','Testing','Pilot Preparation'];
 function Journey(){return <main><PageIntro number="04" eyebrow="JOURNEY" title="Our Journey." description="Follow the path from an idea for connected agriculture through design, development, testing and preparation for the field." image={hero}/>

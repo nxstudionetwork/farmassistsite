@@ -3,7 +3,7 @@ import { Users, MonitorPlay, Sprout, MessageSquare, FlaskConical, Eye, ListCheck
 import { PageIntro, SectionTitle, StepTimeline, ClosingBand } from '@/components/portal/site';
 import { portal } from '@/lib/portal-content';
 import { AudioPlaceholder, VoicesSection } from '@/components/portal/portfolio';
-import hero from '@/assets/farm-hero.jpg';
+import hero from '@/assets/farm-hero.webp';
 export const Route = createFileRoute('/pilot')({head:()=>({meta:[{title:'Pilot — Farm Assist'},{name:'description',content:'Explore the Farm Assist pilot plan, from farmer introduction and testing to feedback and improvements.'},{property:'og:title',content:'Pilot — Farm Assist'},{property:'og:description',content:'How Farm Assist plans to move from development toward real-world farmer use.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}]}),component:Pilot});
 const activities=[['Farmer onboarding',Users],['Application demonstration',MonitorPlay],['Feature usage',Sprout],['Feedback collection',MessageSquare],['Technical testing',FlaskConical],['Usability observation',Eye],['Missing requirements',ListChecks],['Platform improvements',RefreshCw]] as const;
 function Pilot(){return <main><PageIntro number="02" eyebrow="PILOT" title="From building a platform to learning in the field." description="A pilot gives Farm Assist a path from application development toward meaningful farmer use, observation and improvement." image={hero}/>
