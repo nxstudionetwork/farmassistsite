@@ -4,6 +4,8 @@ Run against the local preview with: python3 tests/test_demo_playback.py
 The clip is generated under /tmp and never becomes published content.
 """
 import asyncio
+import base64
+import re
 import subprocess
 import tempfile
 from pathlib import Path
@@ -21,20 +23,16 @@ async def check():
         async with async_playwright() as playwright:
             browser = await playwright.chromium.launch(headless=True)
             page = await browser.new_page(viewport={"width": 1280, "height": 1800})
-            await page.route("**/playback-test.webm", lambda route: route.fulfill(
-                path=str(clip), content_type="video/webm"))
+            source = "data:video/webm;base64," + base64.b64encode(clip.read_bytes()).decode()
+            async def configure_test_media(route):
+                response = await route.fetch()
+                body = await response.text()
+                body = re.sub(r'src: ""', lambda match: 'src: "' + source + '"', body)
+                await route.fulfill(response=response, body=body)
+            await page.route("**/src/lib/portal-content.ts*", configure_test_media)
             await page.goto("http://localhost:8080/demo")
             await page.wait_for_function("document.querySelector('.desktop-nav a') !== null")
             await page.wait_for_timeout(1500)
-            await page.locator(".desktop-nav").get_by_role("link", name="Explore", exact=True).click()
-            await page.evaluate("""async () => {
-                const {portal} = await import('/src/lib/portal-content.ts');
-                const clip = await (await fetch('/playback-test.webm')).blob();
-                const src = URL.createObjectURL(clip);
-                portal.demo.main.src = src;
-                portal.demo.videos[0].src = src;
-            }""")
-            await page.locator(".desktop-nav").get_by_role("link", name="Demo", exact=True).click()
             await page.get_by_role("button", name="Play Farm Assist — Product Demo", exact=True).click()
             await page.wait_for_function('document.querySelector("video")?.currentTime > 0.1')
             await page.get_by_role("button", name="Play The connected platform").click()
