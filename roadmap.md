@@ -10,5 +10,5 @@
 - [x] Give Contact's "Explore Farm Assist" band a green background matching the site's dark-green section styles.
 - [x] Enhance the About page per the brief: stronger hero, Vision & Mission card sections, two-sided ecosystem lists, farmer-customer bridge, Why Farm Assist, six grouped Provide areas, approach quote, preserved IFX Group section, and full responsiveness.
 - [x] Transform Blog into Explore with six original farmer/customer articles, shareable reading pages, filters, experience discovery, and truthful visit-request email preparation; verified at 320px, 375px, 792px and 1280px, including the old published URL redirect.
-- [ ] Refine Demo with deferred video players, media lightboxes, feature and two-sided experience showcases, farm visit link, and configurable download/QR.
-- [ ] Remove Explore's second-last connected-platform section and optimize image delivery without changing the design.
+- [x] Refine Demo with deferred video players, media lightboxes, feature and two-sided experience showcases, farm visit link, and configurable download/QR; verified controls with test-only video and a saved playback regression.
+- [x] Remove Explore's second-last connected-platform section and optimize image delivery with WebP, smaller previews/portraits, and mobile image selection; verified layouts, swipe, gallery controls, images and visit links at 320/375/792/1280px.
