@@ -14,6 +14,17 @@ import fieldThumb from '@/assets/farm-field-thumb.webp';
 
 export type DemoVideo = { id: string; title: string; description: string; category: string; src: string; poster: string; duration?: string; date?: string; featured?: boolean };
 export type DemoImage = { image: string; thumbnail: string; title: string; caption: string; category: string; alt: string };
+export type JourneyMilestone = {
+  id: string;
+  period: string;
+  title: string;
+  summary: string;
+  detail: string;
+  category: 'Idea & Vision' | 'Product Development' | 'Platform Expansion' | 'Farmer Engagement' | 'Customer Experience' | 'Pilot & Field Activities' | 'Future Direction';
+  status: 'Completed' | 'In Progress' | 'Preparing' | 'Planned';
+  image?: string;
+  imageAlt?: string;
+};
 
 export const portal = {
   email: 'farm.assist@outlook.com',
@@ -138,7 +149,15 @@ export const portal = {
       { title: 'Keep the conversation practical', content: 'Ask where a product was grown, how it was stored and how best to prepare it. For packaged food, check ingredients, allergens, storage instructions and applicable date guidance. Choose according to your needs and budget. Understanding labels is about making informed decisions, not judging farmers or customers by one word on a package.' },
     ] },
   ],
-  journeyYears: [] as { year: string; title: string; dimension: string; description: string }[],
+  journeyMilestones: [
+    { id: 'idea', period: 'Date pending', title: 'The Farm Assist idea', summary: 'A farmer-focused purpose and a simpler path through agricultural technology.', detail: 'The project idea, concept and initial direction form the foundation of Farm Assist. A verified founding date has not yet been supplied.', category: 'Idea & Vision', status: 'Completed' },
+    { id: 'purpose', period: 'Date pending', title: 'Defining the purpose', summary: 'Connecting farmers, practical support, services, markets and customers.', detail: 'The platform direction centers on making agricultural tools more approachable while keeping farmers and real farm work at the heart of the experience.', category: 'Idea & Vision', status: 'Completed' },
+    { id: 'product', period: 'Current stage', title: 'Building the connected product', summary: 'Developing the core application and bringing its agricultural areas together.', detail: 'Application development, feature development and platform integration are current focus areas. Individual modules are not presented as complete or launched.', category: 'Product Development', status: 'In Progress', image: farmField, imageAlt: 'Cultivated fields representing the agricultural focus of product development' },
+    { id: 'farmers', period: 'Preparing', title: 'Preparing the farmer experience', summary: 'Shaping farm management, information, services and market connections around farmer needs.', detail: 'Farmer introduction, practical testing and feedback are preparation stages. Participation, pilot farms and field results are not claimed until verified.', category: 'Farmer Engagement', status: 'Preparing' },
+    { id: 'customers', period: 'In development', title: 'Extending the customer experience', summary: 'Bringing customers closer to farm products, growers and agricultural knowledge.', detail: 'Customer-side discovery and connection are part of the platform direction. Public availability and completed marketplace activity are not claimed.', category: 'Customer Experience', status: 'In Progress' },
+    { id: 'field', period: 'Planned', title: 'Learning through real-world use', summary: 'Moving toward pilot activities, feedback and practical improvement.', detail: 'Pilot preparation, initial testing and wider real-world learning remain planned stages. Dates and participating locations will be added only when verified.', category: 'Pilot & Field Activities', status: 'Planned', image: farmLandscape, imageAlt: 'Agricultural landscape representing future field learning' },
+    { id: 'ecosystem', period: 'Future direction', title: 'Growing the agricultural ecosystem', summary: 'Connecting farm experiences, learning, experts and Farm Assist centers over time.', detail: 'The long-term direction includes stronger farmer-customer connections, agricultural learning and real-world experiences. These are goals, not currently available services.', category: 'Future Direction', status: 'Planned' },
+  ] as JourneyMilestone[],
   screenshots: [] as { title: string; image: string }[],
   journey: ['Idea', 'Concept', 'Planning', 'UI/UX', 'Application Development', 'Feature Development', 'Integration', 'Testing', 'Pilot Preparation', 'Pilot', 'Expansion'],
   pilot: ['Preparation', 'Farmer Introduction', 'Initial Testing', 'Pilot Farms', 'Real Usage', 'Feedback', 'Improvements', 'Wider Rollout'],
