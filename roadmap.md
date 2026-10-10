@@ -12,3 +12,4 @@
 - [x] Transform Blog into Explore with six original farmer/customer articles, shareable reading pages, filters, experience discovery, and truthful visit-request email preparation; verified at 320px, 375px, 792px and 1280px, including the old published URL redirect.
 - [x] Refine Demo with deferred video players, media lightboxes, feature and two-sided experience showcases, farm visit link, and configurable download/QR; verified controls with test-only video and a saved playback regression.
 - [x] Remove Explore's second-last connected-platform section and optimize image delivery with WebP, smaller previews/portraits, and mobile image selection; verified layouts, swipe, gallery controls, images and visit links at 320/375/792/1280px.
+- [x] Enhance Journey with a centrally configured, interactive milestone timeline, concise growth/status/future sections, truthful pending dates, and responsive verification at 320/375/792/1280px.
