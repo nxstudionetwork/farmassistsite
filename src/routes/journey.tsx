@@ -1,11 +1,66 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { PageIntro, SectionTitle, StepTimeline, VideoPanel, ClosingBand } from '@/components/portal/site';
+import { ArrowDown, Boxes, Leaf, ShoppingBasket, Sprout, Users } from 'lucide-react';
+import { JourneyTimeline } from '@/components/portal/journey-timeline';
+import { ClosingBand, SectionTitle } from '@/components/portal/site';
+import { Button } from '@/components/ui/button';
 import { portal } from '@/lib/portal-content';
 import hero from '@/assets/farm-hero.webp';
-export const Route = createFileRoute('/journey')({head:()=>({meta:[{title:'Journey — Farm Assist Development'},{name:'description',content:'Follow Farm Assist from idea and planning through application development, testing and pilot preparation.'},{property:'og:title',content:'Journey — Farm Assist Development'},{property:'og:description',content:'The development journey behind Farm Assist, from idea to pilot.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}]}),component:Journey});
-const progress=['Core Application','Farmer Modules','Marketplace','Agricultural Services','Platform Integration','Testing','Pilot Preparation'];
-function Journey(){return <main><PageIntro number="04" eyebrow="JOURNEY" title="Our Journey." description="Follow the path from an idea for connected agriculture through design, development, testing and preparation for the field." image={hero}/>
-<section className="section"><div className="container"><SectionTitle eyebrow="FROM IDEA TO FIELD" title="A journey still in motion." description="Verified dates and milestones will be added when available. These are planned stages, not claims that every stage is complete."/>{portal.journeyYears.length ? <div className="grid-cards">{portal.journeyYears.map(item=><article className="info-card" key={`${item.year}-${item.title}`}><span className="small-label">{item.year} / {item.dimension}</span><h3 style={{marginTop:25}}>{item.title}</h3><p>{item.description}</p></article>)}</div> : <><span className="small-label">DATES TO BE CONFIRMED / PLANNED STAGES</span><StepTimeline items={portal.journey} current="Application Development"/></>}<div className="bridge-subline" style={{color:'var(--primary)'}}>PRODUCT <span>↔</span> FARMERS <span>↔</span> CUSTOMERS <span>↔</span> FUTURE</div></div></section>
-<section className="section section-muted"><div className="container"><SectionTitle eyebrow="WHERE WE ARE NOW" title="Application Development & Testing" description="The focus is on shaping the application, connecting its areas and preparing for real-world learning. Individual module completion is not claimed here."/><div className="grid-cards">{progress.map((item,i)=><div className="info-card" key={item}><span className="small-label">AREA / 0{i+1}</span><h3 style={{marginTop:28}}>{item}</h3><p>Part of the Farm Assist development and pilot preparation journey.</p></div>)}</div></div></section>
-<section className="section"><div className="container"><SectionTitle eyebrow="DEVELOPMENT STATUS" title="What comes together next."/><div className="status-columns"><div className="status-column"><h3>COMPLETED</h3><p>The project idea, concept and initial platform direction form the foundation for ongoing work.</p></div><div className="status-column"><h3>IN PROGRESS</h3><p>Application development, feature development, integration and testing are the current focus areas.</p></div><div className="status-column"><h3>NEXT</h3><p>Pilot preparation, farmer introduction, real-world testing and continued development follow.</p></div></div></div></section>
-<section className="section section-muted"><div className="container"><SectionTitle eyebrow="FOLLOW THE JOURNEY" title="The story as it develops."/><VideoPanel title="Farm Assist Development Journey" src={portal.videos.journey.src} poster={portal.videos.journey.poster} fallback="Journey video coming soon"/></div></section><ClosingBand title="What happens after development?" links={[{label:'Explore the Pilot',to:'/pilot'},{label:'See the Platform',to:'/platform'}]}/></main>}
+
+export const Route = createFileRoute('/journey')({
+  head:()=>({meta:[
+    {title:'Our Journey — Farm Assist'},
+    {name:'description',content:'Follow Farm Assist from a farmer-focused idea toward a connected agricultural platform and ecosystem.'},
+    {property:'og:title',content:'Our Journey — Farm Assist'},
+    {property:'og:description',content:'The evolving Farm Assist story across product, farmers, customers and agricultural experiences.'},
+    {property:'og:type',content:'website'},
+    {name:'twitter:card',content:'summary_large_image'},
+  ]}),
+  component:Journey,
+});
+
+const growthAreas = [
+  { title:'Product', description:'The digital agricultural platform, practical tools and connected services.', icon:Boxes },
+  { title:'Farmers', description:'Farmer-focused farm management, information and agricultural support.', icon:Sprout },
+  { title:'Customers', description:'Farm-product discovery, agricultural knowledge and connection with growers.', icon:ShoppingBasket },
+  { title:'Ecosystem', description:'Learning, farm experiences, experts and real-world agricultural connections.', icon:Users },
+] as const;
+
+const futureGoals = ['More useful agricultural tools','Better farmer support','Improved customer access to farm products','Stronger farmer-customer connections','Agricultural learning and farm experiences','A more connected agricultural ecosystem'];
+
+function Journey(){return <main className="journey-page">
+  <section className="journey-hero">
+    <img src={hero} alt="Green agricultural fields representing the Farm Assist journey" width={1408} height={960} fetchPriority="high" decoding="async"/>
+    <div className="container journey-hero-content">
+      <span className="eyebrow"><span className="eyebrow-line"/>04 / JOURNEY</span>
+      <h1>Our Journey</h1>
+      <p>From an idea to a connected agricultural ecosystem, Farm Assist is working to make farming simpler, connect farmers with opportunities, and bring customers closer to agriculture.</p>
+      <Button asChild variant="portalLight" size="portal"><a href="#journey-timeline">Explore Our Timeline <ArrowDown/></a></Button>
+    </div>
+  </section>
+
+  <section className="section journey-timeline-section" id="journey-timeline"><div className="container journey-timeline-layout">
+    <SectionTitle eyebrow="IDEA TO ECOSYSTEM" title="A journey still in motion." description="Dates remain pending until verified. Completed foundations, current work and planned stages are clearly separated below."/>
+    <JourneyTimeline milestones={portal.journeyMilestones}/>
+  </div></section>
+
+  <section className="section section-muted"><div className="container">
+    <SectionTitle eyebrow="FOUR AREAS OF GROWTH" title="One journey, connected across agriculture." description="Farm Assist is evolving across the product and the people and experiences around it."/>
+    <div className="journey-growth-grid">{growthAreas.map(({title,description,icon:Icon}, index)=><article key={title}><span>{String(index+1).padStart(2,'0')}</span><Icon aria-hidden="true"/><h3>{title}</h3><p>{description}</p></article>)}</div>
+  </div></section>
+
+  <section className="section"><div className="container journey-today">
+    <div><SectionTitle eyebrow="WHERE WE ARE TODAY" title="Development, integration and preparation." description="Farm Assist is not presented as launched or widely adopted. The current focus is building and connecting the platform while preparing for practical learning."/></div>
+    <div className="journey-status-list">
+      <article><span className="journey-status journey-status-completed">Completed</span><h3>Foundation</h3><p>Project idea, concept and initial platform direction.</p></article>
+      <article><span className="journey-status journey-status-in-progress">In Progress</span><h3>Product</h3><p>Application development, features, integration and testing.</p></article>
+      <article><span className="journey-status journey-status-preparing">Preparing</span><h3>Field learning</h3><p>Farmer introduction, pilot preparation and real-world feedback.</p></article>
+    </div>
+  </div></section>
+
+  <section className="section section-dark"><div className="container journey-future">
+    <div><span className="eyebrow"><span className="eyebrow-line"/>FUTURE DIRECTION</span><h2>What we are building toward.</h2><p>These are goals for the evolving Farm Assist ecosystem, not claims about services already available.</p></div>
+    <ul>{futureGoals.map(goal=><li key={goal}><Leaf aria-hidden="true"/><span>{goal}</span></li>)}</ul>
+  </div></section>
+
+  <ClosingBand title="Explore where the journey is heading." description="See the connected platform or watch the available product showcase." links={[{label:'Explore the Platform',to:'/platform'},{label:'Watch the Demo',to:'/demo'}]}/>
+</main>}
