@@ -12,7 +12,7 @@ import farmField from '@/assets/farm-field.webp';
 import farmThumb from '@/assets/farm-hero-thumb.webp';
 import fieldThumb from '@/assets/farm-field-thumb.webp';
 
-export type DemoVideo = { id: string; title: string; description: string; category: string; src: string; poster: string; duration?: string; date?: string; featured?: boolean };
+export type DemoVideo = { id: string; title: string; description: string; category: string; src: string; poster: string; youtubeId?: string; duration?: string; date?: string; featured?: boolean };
 export type DemoImage = { image: string; thumbnail: string; title: string; caption: string; category: string; alt: string };
 export type JourneyMilestone = {
   id: string;
@@ -57,7 +57,7 @@ export const portal = {
   pilotStatus: 'PILOT PREPARATION',
   downloadUrl: '',
   demo: {
-    main: { id: 'main', title: 'Farm Assist — Product Demo', description: 'An overview of farmer-side tools, the customer experience and the agricultural ecosystem.', category: 'Product Demo', src: '', poster: farmThumb, featured: true } as DemoVideo,
+    main: { id: 'main', title: 'Farm Assist — Product Demo', description: 'An overview of farmer-side tools, the customer experience and the agricultural ecosystem.', category: 'Product Demo', src: '', youtubeId: 'fwlVi_wAJQI', poster: farmThumb, featured: true } as DemoVideo,
     videos: [
       { id: 'platform', title: 'The connected platform', description: 'Farmers, services, markets and customers.', category: 'Farm Assist', src: '', poster: farmThumb },
       { id: 'assistant', title: 'AI & farm assistance', description: 'A closer look at agricultural assistance.', category: 'Product Features', src: '', poster: fieldThumb },
