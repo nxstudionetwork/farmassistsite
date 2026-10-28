@@ -10,7 +10,7 @@ import { portal } from '@/lib/portal-content';
 export const Route = createFileRoute('/contact')({
   head: () => ({ meta: [
     { title: 'Contact Farm Assist — Voices, People & Enquiries' },
-    { name: 'description', content: 'Contact Farm Assist, hear sample farmer and customer voices, meet illustrative team profiles, and prepare a message for the team.' },
+    { name: 'description', content: 'Contact Farm Assist, hear demo voices, review support contacts, and prepare a message for the team.' },
     { property: 'og:title', content: 'Contact Farm Assist — Voices, People & Enquiries' },
     { property: 'og:description', content: 'Reach Farm Assist and explore farmer voices, customer voices and the people behind the idea.' },
     { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' },

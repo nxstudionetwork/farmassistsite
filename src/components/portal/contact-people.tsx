@@ -64,18 +64,18 @@ export function ContactVoices() {
 
 function TeamCard({person, onSelect}: {person: TeamMember; onSelect: (person: TeamMember) => void}) {
   return <Button type="button" variant="social" className="team-person" onClick={() => onSelect(person)} aria-label={`View ${person.name}, ${person.designation}`}>
-    <span className="team-person-photo"><img src={person.image} alt={`Demo portrait representing ${person.name}`} loading="lazy" width={300} height={450}/></span>
+    <span className="team-person-initials" aria-hidden="true">{person.name.slice(0, 2).toUpperCase()}</span>
     <span className="team-person-body"><span className="team-person-name">{person.name}<ArrowUpRight size={16} aria-hidden="true"/></span><span className="small-label">{person.designation}</span><span className="team-person-summary">{person.shortDescription}</span></span>
   </Button>;
 }
 
 function TeamModal({person, onClose}: {person: TeamMember | null; onClose: () => void}) {
   return <Dialog open={!!person} onOpenChange={open => { if (!open) onClose(); }}><DialogContent className="team-dialog" aria-describedby="team-dialog-description">
-    {person && <div className="team-dialog-layout"><img src={person.image} alt={`Demo portrait representing ${person.name}`} width={300} height={450}/><div className="team-dialog-copy"><span className="small-label">FARM ASSIST / DEMO PROFILE</span><DialogTitle>{person.name}</DialogTitle><span className="team-dialog-role">{person.designation}</span><DialogDescription id="team-dialog-description">{person.fullDescription}</DialogDescription><p>These details are illustrative and do not identify an actual team member.</p></div></div>}
+    {person && <div className="team-dialog-layout"><div className="team-dialog-copy"><span className="small-label">FARM ASSIST / SUPPORT CONTACT</span><DialogTitle>{person.name}</DialogTitle><span className="team-dialog-role">{person.designation}</span><DialogDescription id="team-dialog-description">{person.fullDescription}</DialogDescription></div></div>}
   </DialogContent></Dialog>;
 }
 
 export function ContactTeam() {
   const [selected, setSelected] = useState<TeamMember | null>(null);
-  return <section className="section"><div className="container"><SectionTitle eyebrow="THE PEOPLE BEHIND THE IDEA" title="Meet the team." description="Five illustrative profiles show the people and disciplines behind a farmer-first platform. Names, photos and biographies are demo content."/><div className="team-people-grid">{portal.team.map(person => <TeamCard key={person.name} person={person} onSelect={setSelected}/>)}</div><TeamModal person={selected} onClose={() => setSelected(null)}/></div></section>;
+  return <section className="section"><div className="container"><SectionTitle eyebrow="PEOPLE & SUPPORT" title="The people behind Farm Assist." description="Review the support roles connected with Farm Assist. No profile photographs or unverified biographies are used."/><div className="team-people-grid">{portal.team.map(person => <TeamCard key={person.name} person={person} onSelect={setSelected}/>)}</div><TeamModal person={selected} onClose={() => setSelected(null)}/></div></section>;
 }

@@ -2,11 +2,6 @@ import voice1 from '@/assets/voice-1.webp';
 import voice2 from '@/assets/voice-2.webp';
 import voice3 from '@/assets/voice-3.webp';
 import voice4 from '@/assets/voice-4.webp';
-import team1 from '@/assets/team-1.webp';
-import team2 from '@/assets/team-2.webp';
-import team3 from '@/assets/team-3.webp';
-import team4 from '@/assets/team-4.webp';
-import team5 from '@/assets/team-5.webp';
 import farmLandscape from '@/assets/farm-hero.webp';
 import farmField from '@/assets/farm-field.webp';
 import farmThumb from '@/assets/farm-hero-thumb.webp';
@@ -48,11 +43,10 @@ export const portal = {
     map: { src: '', poster: '' },
   },
   team: [
-    { image: team1, name: 'Asha Rao', designation: 'Field Partnerships', shortDescription: 'Building connections across farming communities.', fullDescription: 'Demo profile: Asha represents the field partnerships role, listening to farmers and shaping how practical services can reach their communities.' },
-    { image: team2, name: 'Ravi Kumar', designation: 'Farm Operations', shortDescription: 'Grounding ideas in everyday farm work.', fullDescription: 'Demo profile: Ravi represents farm operations, bringing field-first thinking to the way Farm Assist supports agricultural work.' },
-    { image: team3, name: 'Nisha Patel', designation: 'Product Design', shortDescription: 'Designing useful and approachable tools.', fullDescription: 'Demo profile: Nisha represents product design, focusing on clear experiences that make digital tools easier to use.' },
-    { image: team4, name: 'Arjun Mehta', designation: 'Platform Development', shortDescription: 'Connecting people, services and technology.', fullDescription: 'Demo profile: Arjun represents platform development, exploring reliable ways to bring the agricultural ecosystem together.' },
-    { image: team5, name: 'Meera Iyer', designation: 'Crop Research', shortDescription: 'Making agricultural knowledge accessible.', fullDescription: 'Demo profile: Meera represents crop research, translating complex growing information into practical insights.' },
+    { name: 'Hemanth Ch', designation: 'Developer & Executive', shortDescription: 'Responsible for development and executive coordination for Farm Assist.', fullDescription: 'Responsible for development and executive coordination for Farm Assist.' },
+    { name: 'Raghavendra SVD', designation: 'Technology Support & Guidance', shortDescription: 'Provides technology-related support and guidance.', fullDescription: 'Provides technology-related support and guidance.' },
+    { name: 'Bhavya Koduru', designation: 'Agricultural Background Support', shortDescription: 'Supports Farm Assist with agricultural background knowledge and guidance.', fullDescription: 'Supports Farm Assist with agricultural background knowledge and guidance.' },
+    { name: 'HEAL Institute', designation: 'Institutional Support & Guidance', shortDescription: 'Provides institutional support and guidance.', fullDescription: 'Provides institutional support and guidance.' },
   ],
   pilotStatus: 'PILOT PREPARATION',
   downloadUrl: '',
