@@ -1,6 +1,6 @@
 import { Link, useRouterState } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
-import { ArrowUpRight, Instagram, Youtube, Linkedin, Facebook, Menu, X, Sprout } from 'lucide-react';
+import { ArrowUpRight, Instagram, Youtube, Linkedin, Facebook, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { portal } from '@/lib/portal-content';
 
@@ -23,7 +23,7 @@ export function SiteHeader() {
   return <header className="site-header">
     <div className="header-inner">
       <div className="brand-stack">
-        <Link to="/" className="brand" aria-label="Farm Assist home"><span className="brand-mark"><Sprout size={25} strokeWidth={1.8}/></span><span>FARM<span className="brand-light">ASSIST</span><small>AN INITIATIVE OF IFX GROUP</small></span></Link>
+        <Link to="/" className="brand" aria-label="Farm Assist home"><span className="brand-mark"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Copilot_20260623_145916%20%281%29-VUKK2JZkmoBpbq99RmxqHp8skYwTqx.png" alt="" /></span><span className="brand-name">FARM<span className="brand-light">ASSIST</span><small>AN INITIATIVE OF IFX GROUP</small></span></Link>
         <div className="social-row" aria-label="Social media">
           {socials.map(({label, icon: Icon}) => {
             const url = portal.social[label];
