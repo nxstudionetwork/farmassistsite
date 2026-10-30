@@ -1,22 +1,211 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
-import { ArrowUpRight, BookOpen, Bot, Handshake, Map, Sprout, Store, Tractor } from 'lucide-react';
-import { QRCodeSVG } from 'qrcode.react';
-import { Button } from '@/components/ui/button';
-import { SectionTitle, ClosingBand } from '@/components/portal/site';
-import { portal } from '@/lib/portal-content';
-import { DemoPlayer, DemoVideoShowcase, DemoGallery } from '@/components/portal/demo-media';
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowUpRight, BookOpen, Bot, Handshake, Map, Sprout, Store, Tractor } from "lucide-react";
+import { QRCodeSVG } from "qrcode.react";
+import { Button } from "@/components/ui/button";
+import { SectionTitle, ClosingBand } from "@/components/portal/site";
+import { portal } from "@/lib/portal-content";
+import { DemoPlayer, DemoVideoShowcase, DemoGallery } from "@/components/portal/demo-media";
 
-const description = 'Explore the Farm Assist product demo, media, farmer and customer experiences, and connected agricultural capabilities.';
-export const Route = createFileRoute('/demo')({head:()=>({links:[{rel:'preload',as:'image',href:portal.demo.main.poster,fetchPriority:'high'}],meta:[{title:'Demo — Farm Assist Product Showcase'},{name:'description',content:description},{property:'og:title',content:'Demo — Farm Assist Product Showcase'},{property:'og:description',content:description},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}]}),component:Demo});
-const icons = { assistant:Bot, farm:Tractor, services:Handshake, market:Store, learning:BookOpen, map:Map };
+const description =
+  "Explore the Farm Assist product demo, media, farmer and customer experiences, and connected agricultural capabilities.";
+export const Route = createFileRoute("/demo")({
+  head: () => ({
+    links: [{ rel: "preload", as: "image", href: portal.demo.main.poster, fetchPriority: "high" }],
+    meta: [
+      { title: "Demo — Farm Assist Product Showcase" },
+      { name: "description", content: description },
+      { property: "og:title", content: "Demo — Farm Assist Product Showcase" },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Demo,
+});
+const icons = {
+  assistant: Bot,
+  farm: Tractor,
+  services: Handshake,
+  market: Store,
+  learning: BookOpen,
+  map: Map,
+};
 
-function Demo(){return <main className="demo-page">
-  <section className="section-dark demo-hero"><div className="container"><span className="eyebrow">05 / PRODUCT & FIELD</span><h1>See Farm Assist in Action</h1><p className="demo-intro">An overview of the platform, farmer-side capabilities, the customer experience and the agricultural ecosystem.</p><DemoPlayer media={{...portal.demo.main,src:portal.demo.main.src || portal.videos.main.src}}/></div></section>
-  <section className="section section-tight"><div className="container"><SectionTitle eyebrow="THE MEDIA LIBRARY" title="Explore More Videos" description="Product walkthroughs, farmer perspectives and agricultural experiences. Official recordings are pending."/><DemoVideoShowcase/></div></section>
-  <section className="section section-muted section-tight"><div className="container"><SectionTitle eyebrow="IMAGES & APP SCREENS" title="Explore Farm Assist" description="A visual connection to agriculture. Illustrative images are marked; official app screens and activity photographs are pending."/><DemoGallery/></div></section>
-  <section className="section section-tight"><div className="container"><SectionTitle eyebrow="THE PRODUCT VISION" title="What You Can Explore in Farm Assist" description="Selected capabilities being developed—not a claim that every feature is already available."/><div className="demo-feature-list">{portal.demo.features.map(feature => {const Icon=icons[feature.icon];return <div key={feature.title}><span className="demo-feature-icon"><Icon size={25}/></span><div><h3>{feature.title}</h3><p>{feature.description}</p></div></div>;})}</div></div></section>
-  <section className="section section-muted section-tight"><div className="container"><SectionTitle eyebrow="FARMER → FARM ASSIST → CUSTOMER" title="Two sides. One ecosystem."/><div className="demo-sides">{portal.demo.sides.map((side,i) => <div key={side.title}><img src={side.image} alt={i === 0 ? 'Illustrative green farm landscape' : 'Illustrative cultivated crop fields'} loading="lazy" decoding="async" width={800} height={500}/><span className="small-label">IN DEVELOPMENT / {i === 0 ? 'FARMER SIDE' : 'CUSTOMER SIDE'}</span><h3>{side.title}</h3><p>{side.description}</p><ul>{side.items.map(item=><li key={item}><Sprout size={16}/>{item}</li>)}</ul></div>)}</div></div></section>
-  <section className="section section-dark section-tight"><div className="container demo-farm-experience"><div><SectionTitle eyebrow="THE DIGITAL MEETS THE FIELD" title="Experience Agriculture Beyond the App" description="Explore interest in farms, crops, farmers, activities, centers, experts and educational experiences. Participation and locations need confirmation."/><Button asChild variant="portalLight" size="portal"><Link to="/explore" hash="visit-request">Explore Farm Visits <ArrowUpRight size={17}/></Link></Button></div><img src={portal.demo.images[0]?.thumbnail} alt="Illustrative agricultural landscape, not a verified visit location" loading="lazy" decoding="async" width={800} height={500}/></div></section>
-  <section className="section section-muted section-tight"><div className="container download-grid"><div><SectionTitle eyebrow="THE FARM ASSIST APPLICATION" title="Take Farm Assist with you." description="A connected agricultural platform for farmers and customers."/><div className="app-identity"><Sprout size={30}/><strong>FARM ASSIST</strong></div>{portal.downloadUrl ? <Button asChild variant="portal" size="portal"><a href={portal.downloadUrl} target="_blank" rel="noopener noreferrer">Download Farm Assist <ArrowUpRight size={17}/></a></Button> : <span className="availability-note">Official download link coming soon</span>}</div><div className="qr-placeholder">{portal.downloadUrl ? <QRCodeSVG className="demo-qr" value={portal.downloadUrl} size={190} marginSize={2} title="Farm Assist official download QR code"/> : <Sprout size={65} strokeWidth={1}/>}<strong>Scan to Download</strong><span>{portal.downloadUrl ? 'Official Farm Assist download' : 'Official QR code coming soon'}</span></div></div></section>
-  <ClosingBand title="Continue exploring Farm Assist." links={[{label:'The Platform',to:'/platform'},{label:'Explore',to:'/explore'},{label:'Get in Touch',to:'/contact'}]}/>
-</main>}
+function Demo() {
+  return (
+    <main className="demo-page">
+      <section className="section-dark demo-hero">
+        <div className="container">
+          <span className="eyebrow">05 / PRODUCT & FIELD</span>
+          <h1>See Farm Assist in Action</h1>
+          <p className="demo-intro">
+            An overview of the platform, farmer-side capabilities, the customer experience and the
+            agricultural ecosystem.
+          </p>
+          <DemoPlayer
+            media={{ ...portal.demo.main, src: portal.demo.main.src || portal.videos.main.src }}
+          />
+        </div>
+      </section>
+      <section className="section section-tight">
+        <div className="container">
+          <SectionTitle
+            eyebrow="THE MEDIA LIBRARY"
+            title="Explore More Videos"
+            description="Product walkthroughs, farmer perspectives and agricultural experiences. Official recordings are pending."
+          />
+          <DemoVideoShowcase />
+        </div>
+      </section>
+      <section className="section section-muted section-tight">
+        <div className="container">
+          <SectionTitle
+            eyebrow="IMAGES & APP SCREENS"
+            title="Explore Farm Assist"
+            description="A visual connection to agriculture. Illustrative images are marked; official app screens and activity photographs are pending."
+          />
+          <DemoGallery />
+        </div>
+      </section>
+      <section className="section section-tight">
+        <div className="container">
+          <SectionTitle
+            eyebrow="THE PRODUCT VISION"
+            title="What You Can Explore in Farm Assist"
+            description="Selected capabilities being developed—not a claim that every feature is already available."
+          />
+          <div className="demo-feature-list">
+            {portal.demo.features.map((feature) => {
+              const Icon = icons[feature.icon];
+              return (
+                <div key={feature.title}>
+                  <span className="demo-feature-icon">
+                    <Icon size={25} />
+                  </span>
+                  <div>
+                    <h3>{feature.title}</h3>
+                    <p>{feature.description}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+      <section className="section section-muted section-tight">
+        <div className="container">
+          <SectionTitle
+            eyebrow="FARMER → FARM ASSIST → CUSTOMER"
+            title="Two sides. One ecosystem."
+          />
+          <div className="demo-sides">
+            {portal.demo.sides.map((side, i) => (
+              <div key={side.title}>
+                <img
+                  src={side.image}
+                  alt={
+                    i === 0
+                      ? "Illustrative green farm landscape"
+                      : "Illustrative cultivated crop fields"
+                  }
+                  loading="lazy"
+                  decoding="async"
+                  width={800}
+                  height={500}
+                />
+                <span className="small-label">
+                  IN DEVELOPMENT / {i === 0 ? "FARMER SIDE" : "CUSTOMER SIDE"}
+                </span>
+                <h3>{side.title}</h3>
+                <p>{side.description}</p>
+                <ul>
+                  {side.items.map((item) => (
+                    <li key={item}>
+                      <Sprout size={16} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section section-dark section-tight">
+        <div className="container demo-farm-experience">
+          <div>
+            <SectionTitle
+              eyebrow="THE DIGITAL MEETS THE FIELD"
+              title="Experience Agriculture Beyond the App"
+              description="Explore interest in farms, crops, farmers, activities, centers, experts and educational experiences. Participation and locations need confirmation."
+            />
+            <Button asChild variant="portalLight" size="portal">
+              <Link to="/explore" hash="visit-request">
+                Explore Farm Visits <ArrowUpRight size={17} />
+              </Link>
+            </Button>
+          </div>
+          <img
+            src={portal.demo.images[0]?.thumbnail}
+            alt="Illustrative agricultural landscape, not a verified visit location"
+            loading="lazy"
+            decoding="async"
+            width={800}
+            height={500}
+          />
+        </div>
+      </section>
+      <section className="section section-muted section-tight">
+        <div className="container download-grid">
+          <div>
+            <SectionTitle
+              eyebrow="THE FARM ASSIST APPLICATION"
+              title="Take Farm Assist with you."
+              description="A connected agricultural platform for farmers and customers."
+            />
+            <div className="app-identity">
+              <Sprout size={30} />
+              <strong>FARM ASSIST</strong>
+            </div>
+            {portal.downloadUrl ? (
+              <Button asChild variant="portal" size="portal">
+                <a href={portal.downloadUrl} target="_blank" rel="noopener noreferrer">
+                  Download Farm Assist <ArrowUpRight size={17} />
+                </a>
+              </Button>
+            ) : (
+              <span className="availability-note">Official download link coming soon</span>
+            )}
+          </div>
+          <div className="qr-placeholder">
+            {portal.downloadUrl ? (
+              <QRCodeSVG
+                className="demo-qr"
+                value={portal.downloadUrl}
+                size={190}
+                marginSize={2}
+                title="Farm Assist official download QR code"
+              />
+            ) : (
+              <Sprout size={65} strokeWidth={1} />
+            )}
+            <strong>Scan to Download</strong>
+            <span>
+              {portal.downloadUrl
+                ? "Official Farm Assist download"
+                : "Official QR code coming soon"}
+            </span>
+          </div>
+        </div>
+      </section>
+      <ClosingBand
+        title="Continue exploring Farm Assist."
+        links={[
+          { label: "The Platform", to: "/platform" },
+          { label: "Explore", to: "/explore" },
+          { label: "Get in Touch", to: "/contact" },
+        ]}
+      />
+    </main>
+  );
+}
