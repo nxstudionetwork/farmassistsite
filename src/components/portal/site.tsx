@@ -34,7 +34,7 @@ export function SiteHeader() {
           <Link to="/" className="brand" aria-label="Farm Assist home">
             <span className="brand-mark">
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Copilot_20260623_145916%20%281%29-VUKK2JZkmoBpbq99RmxqHp8skYwTqx.png"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Copilot_20260623_145916%20%281%29-emcVYVgkbpLQI5JYtc3Txc1jn2ijtY.png"
                 alt=""
                 width="44"
                 height="44"
