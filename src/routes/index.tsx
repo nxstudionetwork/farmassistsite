@@ -1,36 +1,328 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { ArrowUpRight, Bot, Droplets, CloudSun, Store, Map, BookOpen, Wheat, Activity, Play } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { ArrowLink, SectionTitle, VideoPanel, ClosingBand } from '@/components/portal/site';
-import { portal } from '@/lib/portal-content';
-import { BridgeSection } from '@/components/portal/portfolio';
-import hero from '@/assets/farm-hero.webp';
-import farmer from '@/assets/farm-field.webp';
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  ArrowUpRight,
+  Bot,
+  Droplets,
+  CloudSun,
+  Store,
+  Map,
+  BookOpen,
+  Wheat,
+  Activity,
+  Play,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowLink, SectionTitle, VideoPanel, ClosingBand } from "@/components/portal/site";
+import { portal } from "@/lib/portal-content";
+import { BridgeSection } from "@/components/portal/portfolio";
+import hero from "@/assets/farm-hero.webp";
+import farmer from "@/assets/farm-field.webp";
 
-export const Route = createFileRoute('/')({
-  head: () => ({ links:[{rel:'preload',as:'image',href:hero,fetchPriority:'high'}], meta: [{ title:'Farm Assist — Connected Agriculture' }, { name:'description', content:'Explore Farm Assist, an agricultural technology initiative connecting farm intelligence, management, markets, services and information.' }, { property:'og:title', content:'Farm Assist — Connected Agriculture' }, { property:'og:description', content:'A connected agricultural technology platform being developed for farmers.' }, { property:'og:type', content:'website' }, { name:'twitter:card', content:'summary_large_image' }] }),
+export const Route = createFileRoute("/")({
+  head: () => ({
+    links: [{ rel: "preload", as: "image", href: hero, fetchPriority: "high" }],
+    meta: [
+      { title: "Farm Assist — Connected Agriculture" },
+      {
+        name: "description",
+        content:
+          "Explore Farm Assist, an agricultural technology initiative connecting farm intelligence, management, markets, services and information.",
+      },
+      { property: "og:title", content: "Farm Assist — Connected Agriculture" },
+      {
+        property: "og:description",
+        content: "A connected agricultural technology platform being developed for farmers.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Home,
 });
 const capabilities = [
-  {icon:Bot,title:'AI Assistant',desc:'Explore a more accessible way to find useful agricultural guidance.'},
-  {icon:Wheat,title:'Crop & Soil',desc:'Bring crop and soil information into one connected workspace.'},
-  {icon:Droplets,title:'Irrigation',desc:'Keep water management within the broader farm picture.'},
-  {icon:Store,title:'Marketplace',desc:'Discover a path connecting farmers and agricultural needs.'},
-  {icon:CloudSun,title:'Weather',desc:'Make relevant weather information easier to find.'},
-  {icon:Map,title:'Farm Map',desc:'See the farm as part of a more connected digital view.'},
-  {icon:Activity,title:'Connected Farm & Sensors',desc:'Explore the possibilities of connected farm information.'},
-  {icon:BookOpen,title:'Learning & Information',desc:'Bring useful agricultural knowledge closer.'},
+  {
+    icon: Bot,
+    title: "AI Assistant",
+    desc: "Explore a more accessible way to find useful agricultural guidance.",
+  },
+  {
+    icon: Wheat,
+    title: "Crop & Soil",
+    desc: "Bring crop and soil information into one connected workspace.",
+  },
+  {
+    icon: Droplets,
+    title: "Irrigation",
+    desc: "Keep water management within the broader farm picture.",
+  },
+  {
+    icon: Store,
+    title: "Marketplace",
+    desc: "Discover a path connecting farmers and agricultural needs.",
+  },
+  { icon: CloudSun, title: "Weather", desc: "Make relevant weather information easier to find." },
+  { icon: Map, title: "Farm Map", desc: "See the farm as part of a more connected digital view." },
+  {
+    icon: Activity,
+    title: "Connected Farm & Sensors",
+    desc: "Explore the possibilities of connected farm information.",
+  },
+  {
+    icon: BookOpen,
+    title: "Learning & Information",
+    desc: "Bring useful agricultural knowledge closer.",
+  },
 ];
-function Home(){return <main>
-  <section className="hero"><img className="hero-image" src={hero} alt="Green agricultural fields in rural India" width={1600} height={1008} fetchPriority="high" decoding="async"/><div className="container hero-content"><span className="eyebrow"><span className="eyebrow-line"/>AGRICULTURE, CONNECTED</span><h1>FARM<br/>ASSIST</h1><p className="hero-lead">A startup for farmers, by the farmer.</p><p className="hero-copy">Connecting digital agriculture, services, markets and customers in one evolving ecosystem.</p><div className="action-row"><ArrowLink to="/platform" light>Explore Platform</ArrowLink><Button asChild variant="portalOutline" size="portal"><a href="/demo">Watch Demo <Play size={16}/></a></Button></div></div><div className="hero-bottom">AN INITIATIVE OF IFX GROUP &nbsp; / &nbsp; BUILT AROUND THE FARMER</div></section>
-  <section className="section"><div className="container"><SectionTitle eyebrow="01 / THE ECOSYSTEM" title="What Does Farm Assist Provide?" description="Farm Assist is a digital agricultural platform and service ecosystem, not simply an app."/><div className="grid-cards">{[
-  ["Digital Farming Platform","Farm management, information, tools and services in one place."], ["Agricultural Services","Useful services, experts, schemes, learning and support."], ["Farm Intelligence","Crops, soil, irrigation, weather, livestock and connected-farm insight."], ["Market & Marketplace","Connecting farm products, tools and agricultural market opportunities."], ["Farmer → Customer Bridge","Bringing the people who grow food closer to the people who consume it."], ["Organic & Farm Products","A future customer experience for discovering farm-origin products."], ["Farm Experiences","Educational field visits and experiences for schools and organizations."], ["Connected Ecosystem","A wider connection between farmers, customers, services and technology."]
-].map(([title,desc],i)=><div className="info-card" key={title}><span className="small-label">{String(i+1).padStart(2,"0")} / FARM ASSIST</span><h3 style={{marginTop:25}}>{title}</h3><p>{desc}</p></div>)}</div></div></section>
-  <BridgeSection expanded/>
-  <section className="section section-muted"><div className="container"><SectionTitle eyebrow="TWO SIDES, ONE CONNECTION" title="For farmers. For customers."/><div className="feature-pair"><div className="feature-panel"><span className="small-label">FARMER SIDE</span><h3>Supporting the work on the farm.</h3><p>Management, crop support, soil, irrigation, weather, livestock, experts, schemes, markets, sensors and learning in a more connected platform.</p><div className="module-tags">{["Farm Management","Market","Services","Learning","Connected Farm"].map(x=><span key={x}>{x}</span>)}</div><ArrowLink to="/platform">Explore the Farmer Platform</ArrowLink></div><div className="feature-panel"><span className="small-label">CUSTOMER SIDE / IN DEVELOPMENT</span><h3>Connecting people to the farm.</h3><p>A future experience for discovering farm-origin and organic products, learning where they come from and exploring farm experiences. Purchasing is not live yet.</p><div className="module-tags">{["Farm Products","Discovery","Farm Connection","Experiences"].map(x=><span key={x}>{x}</span>)}</div><ArrowLink to="/platform">Explore the Customer Experience</ArrowLink></div></div></div></section>
-  <section className="section"><div className="container split"><div><SectionTitle eyebrow="01 / THE IDEA" title="One connected place for the many sides of farming."/><div className="body-copy"><p>Farming involves decisions across crops, weather, markets, services and everyday operations. The information farmers need can be scattered across different places.</p><p>Farm Assist is being developed as a connected platform designed to make those parts easier to explore and manage together.</p></div><div className="action-row"><ArrowLink to="/about">Our story</ArrowLink></div></div><img className="split-image" src={farmer} alt="Farmer inspecting a crop in an Indian field" loading="lazy" width={1408} height={960}/></div></section>
-  <section className="section section-muted"><div className="container"><SectionTitle eyebrow="02 / THE ECOSYSTEM" title="Different needs. One direction." description="The platform is envisioned as a connected ecosystem, not a collection of isolated tools."/><div className="ecosystem"><div className="eco-tile"><span>01 / INSIGHT</span><strong>Farm Intelligence</strong></div><div className="eco-tile eco-center"><Activity size={32}/><strong>FARM<br/>ASSIST</strong><span>ONE CONNECTED ECOSYSTEM</span></div><div className="eco-tile"><span>02 / OPERATIONS</span><strong>Farm Management</strong></div><div className="eco-tile"><span>03 / TRADE</span><strong>Markets</strong></div><div className="eco-tile"><span>04 / SUPPORT</span><strong>Services</strong></div><div className="eco-tile"><span>05 / KNOWLEDGE</span><strong>Resources</strong></div><div className="eco-tile"><span>06 / CONNECTION</span><strong>Connectivity</strong></div></div></div></section>
-  <section className="section"><div className="container"><SectionTitle eyebrow="03 / WHAT'S INSIDE" title="Made for the real work of farming." description="A look at the areas Farm Assist is bringing together as the platform develops."/><div className="grid-cards">{capabilities.map(({icon:Icon,title,desc})=><div className="info-card" key={title}><span className="card-icon"><Icon size={21}/></span><h3>{title}</h3><p>{desc}</p></div>)}</div><div className="action-row"><ArrowLink to="/platform">Explore all modules</ArrowLink></div></div></section>
-  <section className="section section-muted"><div className="container"><SectionTitle eyebrow="04 / SEE THE PLATFORM" title="A closer look at Farm Assist."/><VideoPanel title="Farm Assist — Official Demo" src={portal.videos.main.src} poster={portal.videos.main.poster} fallback="Farm Assist Demo Coming Soon"/><div className="action-row"><ArrowLink to="/demo">Visit Demo</ArrowLink></div></div></section>
-  <ClosingBand title="Explore what we're building." links={[{label:'Platform',to:'/platform'},{label:'Journey',to:'/journey'},{label:'Pilot',to:'/pilot'},{label:'Contact',to:'/contact'}]}/>
-</main>}
+function Home() {
+  return (
+    <main>
+      <section className="hero">
+        <img
+          className="hero-image"
+          src={hero}
+          alt="Green agricultural fields in rural India"
+          width={1600}
+          height={1008}
+          fetchPriority="high"
+          decoding="async"
+        />
+        <div className="container hero-content">
+          <span className="eyebrow">
+            <span className="eyebrow-line" />
+            AGRICULTURE, CONNECTED
+          </span>
+          <h1>
+            FARM
+            <br />
+            ASSIST
+          </h1>
+          <p className="hero-lead">A startup for farmers, by the farmer.</p>
+          <p className="hero-copy">
+            Connecting digital agriculture, services, markets and customers in one evolving
+            ecosystem.
+          </p>
+          <div className="action-row">
+            <ArrowLink to="/platform" light>
+              Explore Platform
+            </ArrowLink>
+            <Button asChild variant="portalOutline" size="portal">
+              <a href="/demo">
+                Watch Demo <Play size={16} />
+              </a>
+            </Button>
+          </div>
+        </div>
+        <div className="hero-bottom">
+          AN INITIATIVE OF IFX GROUP &nbsp; / &nbsp; BUILT AROUND THE FARMER
+        </div>
+      </section>
+      <section className="section">
+        <div className="container">
+          <SectionTitle
+            eyebrow="01 / THE ECOSYSTEM"
+            title="What Does Farm Assist Provide?"
+            description="Farm Assist is a digital agricultural platform and service ecosystem, not simply an app."
+          />
+          <div className="grid-cards">
+            {[
+              [
+                "Digital Farming Platform",
+                "Farm management, information, tools and services in one place.",
+              ],
+              ["Agricultural Services", "Useful services, experts, schemes, learning and support."],
+              [
+                "Farm Intelligence",
+                "Crops, soil, irrigation, weather, livestock and connected-farm insight.",
+              ],
+              [
+                "Market & Marketplace",
+                "Connecting farm products, tools and agricultural market opportunities.",
+              ],
+              [
+                "Farmer → Customer Bridge",
+                "Bringing the people who grow food closer to the people who consume it.",
+              ],
+              [
+                "Organic & Farm Products",
+                "A future customer experience for discovering farm-origin products.",
+              ],
+              [
+                "Farm Experiences",
+                "Educational field visits and experiences for schools and organizations.",
+              ],
+              [
+                "Connected Ecosystem",
+                "A wider connection between farmers, customers, services and technology.",
+              ],
+            ].map(([title, desc], i) => (
+              <div className="info-card" key={title}>
+                <span className="small-label">{String(i + 1).padStart(2, "0")} / FARM ASSIST</span>
+                <h3 style={{ marginTop: 25 }}>{title}</h3>
+                <p>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <BridgeSection expanded />
+      <section className="section section-muted">
+        <div className="container">
+          <SectionTitle eyebrow="TWO SIDES, ONE CONNECTION" title="For farmers. For customers." />
+          <div className="feature-pair">
+            <div className="feature-panel">
+              <span className="small-label">FARMER SIDE</span>
+              <h3>Supporting the work on the farm.</h3>
+              <p>
+                Management, crop support, soil, irrigation, weather, livestock, experts, schemes,
+                markets, sensors and learning in a more connected platform.
+              </p>
+              <div className="module-tags">
+                {["Farm Management", "Market", "Services", "Learning", "Connected Farm"].map(
+                  (x) => (
+                    <span key={x}>{x}</span>
+                  ),
+                )}
+              </div>
+              <ArrowLink to="/platform">Explore the Farmer Platform</ArrowLink>
+            </div>
+            <div className="feature-panel">
+              <span className="small-label">CUSTOMER SIDE / IN DEVELOPMENT</span>
+              <h3>Connecting people to the farm.</h3>
+              <p>
+                A future experience for discovering farm-origin and organic products, learning where
+                they come from and exploring farm experiences. Purchasing is not live yet.
+              </p>
+              <div className="module-tags">
+                {["Farm Products", "Discovery", "Farm Connection", "Experiences"].map((x) => (
+                  <span key={x}>{x}</span>
+                ))}
+              </div>
+              <ArrowLink to="/platform">Explore the Customer Experience</ArrowLink>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container split">
+          <div>
+            <SectionTitle
+              eyebrow="01 / THE IDEA"
+              title="One connected place for the many sides of farming."
+            />
+            <div className="body-copy">
+              <p>
+                Farming involves decisions across crops, weather, markets, services and everyday
+                operations. The information farmers need can be scattered across different places.
+              </p>
+              <p>
+                Farm Assist is being developed as a connected platform designed to make those parts
+                easier to explore and manage together.
+              </p>
+            </div>
+            <div className="action-row">
+              <ArrowLink to="/about">Our story</ArrowLink>
+            </div>
+          </div>
+          <img
+            className="split-image"
+            src={farmer}
+            alt="Farmer inspecting a crop in an Indian field"
+            loading="lazy"
+            width={1408}
+            height={960}
+          />
+        </div>
+      </section>
+      <section className="section section-muted">
+        <div className="container">
+          <SectionTitle
+            eyebrow="02 / THE ECOSYSTEM"
+            title="Different needs. One direction."
+            description="The platform is envisioned as a connected ecosystem, not a collection of isolated tools."
+          />
+          <div className="ecosystem">
+            <div className="eco-tile">
+              <span>01 / INSIGHT</span>
+              <strong>Farm Intelligence</strong>
+            </div>
+            <div className="eco-tile eco-center">
+              <Activity size={32} />
+              <strong>
+                FARM
+                <br />
+                ASSIST
+              </strong>
+              <span>ONE CONNECTED ECOSYSTEM</span>
+            </div>
+            <div className="eco-tile">
+              <span>02 / OPERATIONS</span>
+              <strong>Farm Management</strong>
+            </div>
+            <div className="eco-tile">
+              <span>03 / TRADE</span>
+              <strong>Markets</strong>
+            </div>
+            <div className="eco-tile">
+              <span>04 / SUPPORT</span>
+              <strong>Services</strong>
+            </div>
+            <div className="eco-tile">
+              <span>05 / KNOWLEDGE</span>
+              <strong>Resources</strong>
+            </div>
+            <div className="eco-tile">
+              <span>06 / CONNECTION</span>
+              <strong>Connectivity</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container">
+          <SectionTitle
+            eyebrow="03 / WHAT'S INSIDE"
+            title="Made for the real work of farming."
+            description="A look at the areas Farm Assist is bringing together as the platform develops."
+          />
+          <div className="grid-cards">
+            {capabilities.map(({ icon: Icon, title, desc }) => (
+              <div className="info-card" key={title}>
+                <span className="card-icon">
+                  <Icon size={21} />
+                </span>
+                <h3>{title}</h3>
+                <p>{desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="action-row">
+            <ArrowLink to="/platform">Explore all modules</ArrowLink>
+          </div>
+        </div>
+      </section>
+      <section className="section section-muted">
+        <div className="container">
+          <SectionTitle eyebrow="04 / SEE THE PLATFORM" title="A closer look at Farm Assist." />
+          <VideoPanel
+            title="Farm Assist — Official Demo"
+            src={portal.videos.main.src}
+            poster={portal.videos.main.poster}
+            fallback="Farm Assist Demo Coming Soon"
+          />
+          <div className="action-row">
+            <ArrowLink to="/demo">Visit Demo</ArrowLink>
+          </div>
+        </div>
+      </section>
+      <ClosingBand
+        title="Explore what we're building."
+        links={[
+          { label: "Platform", to: "/platform" },
+          { label: "Journey", to: "/journey" },
+          { label: "Pilot", to: "/pilot" },
+          { label: "Contact", to: "/contact" },
+        ]}
+      />
+    </main>
+  );
+}
