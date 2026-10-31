@@ -224,8 +224,15 @@
   border-radius: 50%;
   transition:
     color 0.2s,
-    transform 0.2s;
+    transform 0.2s,
+    background-color 0.2s;
 }
+
+.social-row a:nth-child(1) { color: #d9468a; }
+.social-row a:nth-child(2) { color: #e11d48; }
+.social-row a:nth-child(3) { color: #374151; }
+.social-row a:nth-child(4) { color: #0a66c2; }
+.social-row a:nth-child(5) { color: #1877f2; }
 
 .social-pending {
   opacity: 0.68;
@@ -235,7 +242,7 @@
 .social-row button:hover {
   color: var(--primary);
   transform: translateY(-2px);
-  background: transparent;
+  background: color-mix(in srgb, currentColor 10%, transparent);
 }
 .social-notice {
   position: absolute;

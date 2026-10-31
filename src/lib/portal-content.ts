@@ -51,11 +51,12 @@ export const portal = {
   phone: "9440520641",
   location: "Online",
   social: {
-    Instagram: "",
-    YouTube: "",
-    X: "",
-    LinkedIn: "",
-    Facebook: "",
+    // Placeholder URLs stay centralized until the official profiles are confirmed.
+    Instagram: "#",
+    YouTube: "#",
+    X: "#",
+    LinkedIn: "#",
+    Facebook: "#",
   },
   videos: {
     main: { src: "", poster: "" },
