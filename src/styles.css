@@ -1576,7 +1576,7 @@
 }
 @media (prefers-color-scheme: dark) {
   .brand-mark img {
-    mix-blend-mode: screen;
+    mix-blend-mode: multiply;
   }
 }
 @media (max-width: 640px) {
