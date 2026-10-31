@@ -148,10 +148,10 @@
 .brand-stack {
   position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
+  align-items: center;
+  gap: 20px;
   flex-shrink: 0;
+  min-width: 0;
 }
 .brand {
   display: inline-flex;
@@ -200,12 +200,13 @@
 .social-row {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding-left: 59px;
-  min-height: 18px;
+  gap: 12px;
+  padding-left: 0;
+  min-height: 22px;
 }
 .social-row a,
-.social-row button {
+.social-row button,
+.social-pending {
   display: grid;
   place-items: center;
   color: var(--muted-foreground);
@@ -214,10 +215,14 @@
   padding: 0;
   background: transparent;
   border: 0;
-  box-shadow: none;
   transition:
     color 0.2s,
     transform 0.2s;
+}
+
+.social-pending {
+  opacity: 0.68;
+  cursor: default;
 }
 .social-row a:hover,
 .social-row button:hover {
@@ -1656,9 +1661,9 @@
   .brand-mark svg {
     width: 20px;
   }
-  .social-row {
-    gap: 1px;
-  }
+.social-row {
+  gap: 10px;
+}
   .social-row a,
   .social-row button {
     width: 19px;

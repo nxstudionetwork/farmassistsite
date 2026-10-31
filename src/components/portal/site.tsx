@@ -45,25 +45,32 @@ export function SiteHeader() {
               <small>AN INITIATIVE OF IFX GROUP</small>
             </span>
           </Link>
-          {Object.values(portal.social).some(Boolean) && (
-            <div className="social-row" aria-label="Social media">
-              {socials.map(({ label, icon: Icon }) => {
-                const url = portal.social[label];
-                return url ? (
-                  <a
-                    key={label}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    title={label}
-                  >
-                    <Icon size={15} />
-                  </a>
-                ) : null;
-              })}
-            </div>
-          )}
+          <div className="social-row" aria-label="Social media">
+            {socials.map(({ label, icon: Icon }) => {
+              const url = portal.social[label];
+              return url ? (
+                <a
+                  key={label}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  title={label}
+                >
+                  <Icon size={15} />
+                </a>
+              ) : (
+                <span
+                  key={label}
+                  className="social-pending"
+                  aria-label={`${label} coming soon`}
+                  title={`${label} coming soon`}
+                >
+                  <Icon size={15} aria-hidden="true" />
+                </span>
+              );
+            })}
+          </div>
         </div>
         <nav className="desktop-nav" aria-label="Main navigation">
           {links.map((l) => (
