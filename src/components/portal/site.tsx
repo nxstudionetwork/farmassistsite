@@ -41,7 +41,9 @@ export function SiteHeader() {
               />
             </span>
             <span className="brand-name">
-              FARM<span className="brand-light">ASSIST</span>
+              <span className="brand-title">
+                FARM<span className="brand-light">ASSIST</span>
+              </span>
               <small>AN INITIATIVE OF IFX GROUP</small>
             </span>
           </Link>
