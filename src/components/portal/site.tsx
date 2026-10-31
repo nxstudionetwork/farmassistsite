@@ -62,6 +62,11 @@ export function SiteHeader() {
                   </a>
                 ) : null;
               })}
+              {notice && (
+                <span className="social-notice" role="status">
+                  {notice}
+                </span>
+              )}
             </div>
           )}
         </div>
