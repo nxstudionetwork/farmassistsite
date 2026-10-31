@@ -34,14 +34,16 @@ export function SiteHeader() {
           <Link to="/" className="brand" aria-label="Farm Assist home">
             <span className="brand-mark">
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Copilot_20260623_145916%20%281%29-VUKK2JZkmoBpbq99RmxqHp8skYwTqx.png"
-                alt=""
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Copilot_20260623_145916%20%281%29-emcVYVgkbpLQI5JYtc3Txc1jn2ijtY.png"
+                alt="Farm Assist logo"
                 width="44"
                 height="44"
               />
             </span>
             <span className="brand-name">
-              FARM<span className="brand-light">ASSIST</span>
+              <span className="brand-title">
+                FARM<span className="brand-light">ASSIST</span>
+              </span>
               <small>AN INITIATIVE OF IFX GROUP</small>
             </span>
           </Link>
